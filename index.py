@@ -1,0 +1,1 @@
+from app import app  # Impor aplikasi Flask Anda
