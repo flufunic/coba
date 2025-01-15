@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pencarian Data NIK</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+        <header>
+            <h1>Pencarian Data Berdasarkan NIK</h1>
+        </header>
+        
+        <form id="nikForm">
+            <label for="nik">Masukkan NIK:</label>
+            <input type="text" id="nik" name="nik" placeholder="Masukkan NIK" required>
+            <button type="submit">Cari</button>
+        </form>
+
+        <div id="result">
+            <!-- Tabel hasil pencarian akan muncul di sini -->
+        </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#nikForm').on('submit', function(event) {
+                event.preventDefault();  // Mencegah form submit normal
+
+                var nik = $('#nik').val();  // Ambil nilai NIK dari input
+                
+                $.ajax({
+                    url: '/search',
+                    method: 'POST',
+                    data: {nik: nik},
+                    success: function(response) {
+                        // Jika berhasil, tampilkan data dalam tabel
+                        if (response) {
+                            var html = '<table><thead><tr>';
+                            html += '<th>Nama</th><th>SEMBAKO</th><th>PKH</th><th>PBI</th><th>RST</th><th>BLT ELNINO</th>';
+                            html += '<th>BLT BBM</th><th>SEMBAKO ADAPTIF</th><th>BLT MIGOR</th><th>YATIM PIATU</th>';
+                            html += '<th>PERMAKANAN</th><th>PENA</th><th>BPNT-PPKM</th><th>BST</th><th>ATENSI</th></tr></thead><tbody>';
+                            
+                            html += '<tr>';
+                            html += '<td>' + response.Nama + '</td>';
+                            html += '<td>' + response.SEMBAKO + '</td>';
+                            html += '<td>' + response.PKH + '</td>';
+                            html += '<td>' + response.PBI + '</td>';
+                            html += '<td>' + response.RST + '</td>';
+                            html += '<td>' + response['BLT ELNINO'] + '</td>';
+                            html += '<td>' + response['BLT BBM'] + '</td>';
+                            html += '<td>' + response['SEMBAKO ADAPTIF'] + '</td>';
+                            html += '<td>' + response['BLT MIGOR'] + '</td>';
+                            html += '<td>' + response['YATIM PIATU'] + '</td>';
+                            html += '<td>' + response.PERMAKANAN + '</td>';
+                            html += '<td>' + response.PENA + '</td>';
+                            html += '<td>' + response['BPNT-PPKM'] + '</td>';
+                            html += '<td>' + response.BST + '</td>';
+                            html += '<td>' + response.ATENSI + '</td>';
+                            html += '</tr></tbody></table>';
+
+                            $('#result').html(html);  // Tampilkan hasil di dalam div#result
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        // Jika terjadi error
+                        $('#result').html('<p>Data tidak ditemukan!</p>');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

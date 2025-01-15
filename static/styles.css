@@ -1,0 +1,114 @@
+/* Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #F1F1F1; /* Background soft gray */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    text-align: center;
+    color: #0066cc; /* Biru */
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #0066cc; /* Biru */
+}
+
+input[type="text"] {
+    width: 80%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #0066cc; /* Biru */
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+button {
+    width: 80%;
+    padding: 12px;
+    background-color: #FFD700; /* Kuning */
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #FFB300; /* Kuning sedikit lebih gelap */
+}
+
+#result {
+    margin-top: 30px;
+    padding: 10px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+}
+
+thead {
+    background-color: #0066cc; /* Biru */
+    color: white;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    font-size: 1.1rem;
+}
+
+td {
+    background-color: #f9f9f9;
+    font-size: 1rem;
+}
+
+tr:nth-child(even) td {
+    background-color: #f1f1f1;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 20px;
+        width: 90%;
+    }
+    input[type="text"], button {
+        width: 100%;
+    }
+    table {
+        font-size: 0.9rem;
+    }
+}
