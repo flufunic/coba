@@ -26,9 +26,9 @@
     <script>
         $(document).ready(function() {
             $('#nikForm').on('submit', function(event) {
-                event.preventDefault();  // Mencegah form submit normal
+                event.preventDefault();  
 
-                var nik = $('#nik').val();  // Ambil nilai NIK dari input
+                var nik = $('#nik').val();  
                 
                 $.ajax({
                     url: '/search',
@@ -38,7 +38,7 @@
                         // Jika berhasil, tampilkan data dalam tabel
                         if (response) {
                             var html = '<table><thead><tr>';
-                            html += '<th>Nama</th><th>SEMBAKO</th><th>PKH</th><th>PBI</th><th>RST</th><th>BLT ELNINO</th>';
+                            html += '<th>NAMA</th><th>SEMBAKO</th><th>PKH</th><th>PBI</th><th>RST</th><th>BLT ELNINO</th>';
                             html += '<th>BLT BBM</th><th>SEMBAKO ADAPTIF</th><th>BLT MIGOR</th><th>YATIM PIATU</th>';
                             html += '<th>PERMAKANAN</th><th>PENA</th><th>BPNT-PPKM</th><th>BST</th><th>ATENSI</th></tr></thead><tbody>';
                             
@@ -60,7 +60,7 @@
                             html += '<td>' + response.ATENSI + '</td>';
                             html += '</tr></tbody></table>';
 
-                            $('#result').html(html);  // Tampilkan hasil di dalam div#result
+                            $('#result').html(html);  
                         }
                     },
                     error: function(xhr, status, error) {

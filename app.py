@@ -8,16 +8,13 @@ EXCEL_FILE = 'assets/baru.xlsx'
 
 def cari_data_berdasarkan_nik(nik):
     try:
-        # Baca file Excel, pastikan kolom NIK dibaca sebagai string
         df = pd.read_excel(EXCEL_FILE, dtype={'NIK': str})
 
-        # Cari data berdasarkan NIK
         result = df[df['NIK'].str.strip() == nik.strip()]
 
         if result.empty:
-            return None  # Jika data tidak ditemukan
+            return None  
 
-        # Pilih kolom yang diperlukan
         output = result[[
             "Nama", "SEMBAKO", "PKH", "PBI", "RST", "BLT ELNINO", "BLT BBM",
             "SEMBAKO ADAPTIF", "BLT MIGOR", "YATIM PIATU", "PERMAKANAN",
