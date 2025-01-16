@@ -26,8 +26,9 @@ header h1 {
 
 h3 {
     text-align: center;
-    color: #0066cc;
+    color: #0e85fc;
 }
+
 form {
     display: flex;
     flex-direction: column;
