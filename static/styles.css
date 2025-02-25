@@ -8,6 +8,7 @@ body {
     box-sizing: border-box;
 }
 
+
 .container {
     max-width: 800px;
     margin: 50px auto;
@@ -78,6 +79,8 @@ button:hover {
     margin-top: 30px;
     padding: 10px;
     text-align: center;
+    overflow-x: auto;
+    max-width: 100%;
 }
 
 table {

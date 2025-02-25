@@ -18,7 +18,7 @@ def cari_data_berdasarkan_nik(nik):
         output = result[[
             "Nama", "SEMBAKO", "PKH", "PBI", "RST", "BLT ELNINO", "BLT BBM",
             "SEMBAKO ADAPTIF", "BLT MIGOR", "YATIM PIATU", "PERMAKANAN",
-            "PENA", "BPNT-PPKM", "BST", "ATENSI"
+            "PENA", "BPNT-PPKM", "BST", "ATENSI", "Keterangan"
         ]]
 
         # Konversi ke dictionary untuk output
